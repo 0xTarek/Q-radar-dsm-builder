@@ -3,7 +3,7 @@
 <div align="center">
 
 ![QRadar DSM Builder](https://img.shields.io/badge/QRadar-DSM_Builder-00b0f0?style=for-the-badge&logo=ibm&logoColor=white)
-![Python](https://img.shields.io/badge/Python-2.7+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-2.7%2B_%7C_3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES8-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
@@ -85,7 +85,7 @@ A browser-based tool that eliminates the pain of manual DSM development in IBM Q
 
 | Component | Requirement |
 |-----------|-------------|
-| Python | 2.7+ (no external packages needed) |
+| Python | 2.7+ or 3.x (no external packages needed) |
 | Browser | Chrome / Firefox / Edge (modern) |
 | QRadar | 7.3.x — 7.5.x (2021.6+) |
 | Network | Server must reach QRadar Console on port 443 |
@@ -98,8 +98,8 @@ A browser-based tool that eliminates the pain of manual DSM development in IBM Q
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/0xTarek/qradar-dsm-builder.git
-cd qradar-dsm-builder
+git clone https://github.com/0xTarek/Q-radar-dsm-builder.git
+cd Q-radar-dsm-builder
 ```
 
 ### 2. Deploy files
@@ -111,6 +111,14 @@ sudo cp dsm_server.py /opt/dsm-builder/dsm_server.py
 ```
 
 ### 3. Install as a service (runs permanently)
+
+> **Python 3 only? (Ubuntu/Debian)** Run this first before installing the service:
+> ```bash
+> sudo sed -i 's|/usr/bin/python |/usr/bin/python3 |g' /etc/systemd/system/dsm-builder.service
+> sudo sed -i 's|import urllib2|import urllib.request as urllib2|g' /opt/dsm-builder/dsm_server.py
+> sudo sed -i 's|import BaseHTTPServer|import http.server as BaseHTTPServer|g' /opt/dsm-builder/dsm_server.py
+> sudo sed -i 's|import SimpleHTTPServer|import http.server as SimpleHTTPServer|g' /opt/dsm-builder/dsm_server.py
+> ```
 
 ```bash
 sudo cp dsm-builder.service /etc/systemd/system/
