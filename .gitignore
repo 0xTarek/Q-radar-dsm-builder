@@ -1,0 +1,33 @@
+# Secrets — never commit these
+*.token
+*.key
+*.pem
+config.local.*
+secrets.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Temp
+/tmp/
+*.tmp

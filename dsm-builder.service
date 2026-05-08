@@ -1,0 +1,13 @@
+[Unit]
+Description=DSM Builder Web Server
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/dsm-builder
+ExecStart=/usr/bin/python /opt/dsm-builder/dsm_server.py
+Restart=always
+User=nobody
+
+[Install]
+WantedBy=multi-user.target
