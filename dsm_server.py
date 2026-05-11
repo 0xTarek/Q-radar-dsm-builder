@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -- coding: utf-8 --
+# -- coding: utf-8 -- 
 """
 DSM Builder Server — Python 2.7 compatible
 Serves the HTML tool on port 8080
